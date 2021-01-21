@@ -1,0 +1,19 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: consumer
+          uri: lb://first-consumer
+          predicates:
+            - Path=/cloud/consumer/**
+          filters:
+            - StripPrefix=2
+        - id: provider
+          uri: lb://first-provider
+          predicates:
+            - Path=/cloud/provider/**
+          filters:
+            - StripPrefix=2

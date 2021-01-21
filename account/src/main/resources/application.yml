@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3308/account?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: account_group
+#seata:
+#  registry:
+#    type: nacos
+#  service:
+#    vgroup-mapping:
+#      DEFAULT_GROUP: default
+#  application-id: seata-server
+
+logging:
+  level:
+    #开启sql debug日志
+    com.wang.mapper: DEBUG
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

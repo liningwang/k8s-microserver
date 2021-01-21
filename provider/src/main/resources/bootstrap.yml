@@ -1,0 +1,17 @@
+server:
+  port: 8085
+
+mall:
+  nacos:
+    server-addr: 192.168.1.105:8848
+test: aaa
+spring:
+  application:
+    name: first-provider
+  cloud:
+    nacos:
+      config:
+        server-addr: ${mall.nacos.server-addr}
+        file-extension: yml
+      discovery:
+        server-addr: ${mall.nacos.server-addr}

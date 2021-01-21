@@ -1,0 +1,23 @@
+server:
+  port: 8200
+mall:
+  nacos:
+    server-addr: localhost:8848
+spring:
+  application:
+    name: account
+  cloud:
+    szentinel:
+      transport:
+        port: 8719
+        dashboard: localhost:8080
+    nacos:
+      config:
+        server-addr: ${mall.nacos.server-addr}
+        file-extension: yml
+        group: SEATA_GROUP
+      discovery:
+        server-addr: ${mall.nacos.server-addr}
+feign:
+  sentinel:
+    enabled: true
